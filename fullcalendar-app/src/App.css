@@ -1,38 +1,273 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-shell {
   min-height: 100vh;
+  padding: 32px;
+  color: #f3efe7;
+  background:
+    radial-gradient(circle at top left, rgba(255, 196, 87, 0.18), transparent 28%),
+    radial-gradient(circle at right top, rgba(94, 234, 212, 0.14), transparent 24%),
+    linear-gradient(160deg, #101623 0%, #0b0f18 60%, #090c13 100%);
+}
+
+.card-surface {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  background: rgba(10, 14, 24, 0.78);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.hero {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: #f5c85b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h1,
+h2,
+h3,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+  line-height: 1.04;
+  max-width: 12ch;
+}
+
+.hero-copy,
+.panel-note,
+.detail-description,
+.calendar-event-meta,
+.detail-date,
+.event-chip-date,
+.metric-label {
+  color: rgba(243, 239, 231, 0.72);
+}
+
+.hero-copy {
+  max-width: 62ch;
+  margin-top: 16px;
+  line-height: 1.8;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 12px;
+  align-self: end;
+}
+
+.metric {
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.metric-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.metric strong {
+  font-size: 1.05rem;
+  color: #fff5d8;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(300px, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.calendar-panel,
+.sidebar {
+  padding: 24px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.panel-note {
+  max-width: 26ch;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.calendar-frame {
+  --fc-border-color: rgba(255, 255, 255, 0.08);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: rgba(255, 255, 255, 0.04);
+  --fc-today-bg-color: rgba(245, 200, 91, 0.12);
+  --fc-list-event-hover-bg-color: rgba(255, 255, 255, 0.06);
+  --fc-event-bg-color: #5eead4;
+  --fc-event-border-color: transparent;
+  --fc-event-text-color: #08121b;
+}
+
+.calendar-frame :where(.fc) {
+  color: #f3efe7;
+}
+
+.calendar-frame :where(.fc .fc-toolbar-title) {
+  font-size: 1.25rem;
+}
+
+.calendar-frame :where(.fc .fc-button-primary) {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #f3efe7;
+  box-shadow: none;
+}
+
+.calendar-frame :where(.fc .fc-button-primary:not(:disabled).fc-button-active),
+.calendar-frame :where(.fc .fc-button-primary:not(:disabled):active) {
+  background: #f5c85b;
+  border-color: #f5c85b;
+  color: #111827;
+}
+
+.calendar-frame :where(.fc-theme-standard td, .fc-theme-standard th, .fc-scrollgrid) {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.calendar-frame :where(.fc .fc-daygrid-day-number, .fc .fc-col-header-cell-cushion) {
+  color: rgba(243, 239, 231, 0.82);
+  text-decoration: none;
+}
+
+.calendar-event {
+  display: grid;
+  gap: 3px;
+}
+
+.calendar-event-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.calendar-event-meta {
+  font-size: 0.72rem;
+}
+
+.detail-card {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.detail-date {
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+}
+
+.detail-card h3,
+.event-list h3 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.detail-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.detail-list dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 231, 0.55);
+}
+
+.detail-list dd {
+  margin-top: 4px;
+  line-height: 1.7;
+}
+
+.event-list {
+  margin-top: 22px;
+}
+
+.event-list-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.event-chip {
+  display: grid;
+  gap: 6px;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  cursor: pointer;
+}
+
+.event-chip:hover,
+.event-chip.is-active {
+  background: rgba(245, 200, 91, 0.12);
+  border-color: rgba(245, 200, 91, 0.3);
+}
+
+.event-chip-date {
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
+
+.event-chip-title {
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1080px) {
+  .hero,
+  .layout {
+    grid-template-columns: 1fr;
+    display: grid;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero-metrics {
+    align-self: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .hero,
+  .calendar-panel,
+  .sidebar {
+    padding: 18px;
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr;
   }
 }

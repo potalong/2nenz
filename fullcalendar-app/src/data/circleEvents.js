@@ -43,14 +43,5 @@ export const circleEvents = [
     description: 'オンライン勉強会 アイデア発想ハンズオン！',
     location: 'オンライン',
     owner: '',
-  },  
-  {
-    date: '4/29 Wed. 10:00 - 19:30',
-    start: '2026-04-29T10:00:00',
-    end: '2026-04-29T19:30:00',
-    title: 'ゆるそん',
-    description: 'ゆるゆるハッカソン',
-    location: 'A14教室',
-    owner: '無音',
   },
 ]

@@ -7,31 +7,11 @@ export function CampusPage() {
   return (
     <div className="page">
       <section className="card">
-        <p className="section-label">CAMPUS</p>
         <h2>楽単一覧と先生Tier表一覧</h2>
       </section>
-      <section className="card">
-        <p className="section-label">EXAMPLE</p>
-        <h2>まずはこの1枚を見本にする</h2>
-        <p className="section-text">
-          このカードの形を固定しておけば、あとは <code>easyClasses.js</code>{' '}
-          の各ランクの <code>courses</code> に同じ項目を追加するだけで一覧を増やせます。
-        </p>
-
-        <div className="grid">
-          <EasyClassCard course={easyClassTemplate} />
-        </div>
-      </section>
 
       <section className="card">
-        <p className="section-label">LIST</p>
-        <h2>S,A,B,C,D に分けた楽単一覧</h2>
-        <p className="section-text">
-          見本と同じコンポーネントを使っています。授業を追加するときは、入れたいランクの
-          <code>courses</code> 配列に1件足してください。
-        </p>
-
-        <div className="rank-section-list">
+       <div className="rank-section-list">
           {easyClassSections.map((section) => (
             <section key={section.rank} className="rank-section">
               <div className="rank-section-header">
@@ -70,10 +50,6 @@ export function CampusPage() {
       <section className="card">
         <p className="section-label">TEACHER TIER</p>
         <h2>先生Tier表</h2>
-        <p className="section-text">
-          こちらも同じく配列を回して表示しています。Tierごとに分けるだけなので複雑な設計は要りません。
-        </p>
-
         <div className="grid">
           {teacherTiers.map((tier) => (
             <article key={tier.label} className="item-card">
