@@ -7,7 +7,7 @@ export function CircleCalendarPage() {
         <p className="section-label">EVENTS</p>
         <h2>直近イベント</h2>
         <p className="section-text">
-          まずはカード一覧で十分です。あとから本格的な月表示カレンダーに変えられます。
+          直近のイベントです。気になるものがあればぜひ！
         </p>
 
         <div className="grid">
@@ -17,7 +17,7 @@ export function CircleCalendarPage() {
               <ul className="info-list">
                 <li>日付: {event.date}</li>
                 <li>場所: {event.location}</li>
-                <li>担当: {event.owner}</li>
+                <li>webサイト: {event.owner}</li>
               </ul>
               <p className="section-text">{event.description}</p>
             </article>
